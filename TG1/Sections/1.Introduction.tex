@@ -1,0 +1,30 @@
+A quinta geração de redes móveis (5G) teve sua especificação inicial disponibilizada em 2017 na \textit{Release 15} da 3GPP \cite{Redana2020}, trazendo diversas melhorias em relação a quarta geração (4G). \textcolor{red}{QUAIS SÃO AS MELHORIAS? }
+É possível citar como principais metas do 5G em relação às gerações anteriores maiores taxas de transferência de dados, maior área de cobertura e menor latência de comunicação \cite{Ahmad2019}.
+\textbf{TODO: ADICIONAR MAIS ALGUMA COISA} 
+
+Para que seja possível atingir as metas propostas, uma evolução no núcleo da rede se torna necessária por ser considerado o elemento mais crítico do 5G \cite{Cardoso2020}. 
+
+\textbf{(no mínimo 3 frases por paragrafo)}
+
+\textbf{Escrever sobre 5G geral}
+
+\textbf{Desempenho do 5G}
+
+\textbf{5G em software}
+
+\textbf{Software sem garantias (é preciso testar).}
+
+O conceito de redes móveis privadas surgiu com o advento da Indústria 4.0, que visa transformar a manufatura industrial por meio da digitalização e exploração das potencialidades das novas tecnologias \cite{Rojko2017}.
+Uma indústria pode criar e gerenciar sua própria rede 4G ou 5G, permitindo a conexão de milhares de dispositivos e sensores, provendo segurança, performance e baixa latência.
+Existem implementações \textit{open source} de estações de rádio e núcleos de redes 4G e 5G disponíveis, como \textit{free5GC}\footnote{\url{https://www.free5gc.org}}, \textit{Open5GS}\footnote{\url{https://open5gs.org}}, \textit{OpenAirInterface}\footnote{\url{https://openairinterface.org}} (OAI), \textit{srsRAN}\footnote{\url{https://www.srslte.com}}, dentre outras, facilitando a implantação desse tipo de rede móvel em ambientes corporativos.
+
+Uma vez que deseja-se implantar uma rede móvel privada, é preciso avaliar o cenário para que possa ser feita a implementação com a melhor relação custo-benefício possível.
+Sendo assim, é preciso avaliar, principalmente, a área de cobertura a ser atendida pelas antenas, quantos dispositivos serão conectados, qual o tráfego de dados que será gerado e qual a latência máxima desejada para a comunicação dos dispositivos.
+Após coletar essas informações, pode-se definir o tipo de equipamento que precisa ser adquirido para suprir a necessidade dessa rede.
+Entretanto, para que se possa definir qual o \textit{hardware} a ser usado, é preciso saber como as implementações \textit{open source} se comportam ao serem executadas nesses equipamentos.
+
+Nesse contexto, estão inseridos os testes para averiguar o comportamento dessas redes móveis em diversos cenários.
+Como as implementações \textit{open source} não possuem garantias, é preciso executar testes de conformidade e robustez, por exemplo para garantir que o núcleo da rede se comporte da forma que foi especificado.
+Além disso, é preciso aferir o desempenho das diversas implementações, permitindo com que seja possível avaliar qual \textit{hardware} seria capaz de rodar a implementação desejada de acordo com a capacidade da rede que se deseja implantar.
+
+Desta forma, o presente trabalho tem como objetivo responder a seguinte questão: como se comportam as diferentes implementações \textit{open source} de core 5G para execução dos procedimentos em escala?

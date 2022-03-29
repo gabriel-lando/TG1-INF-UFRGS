@@ -1,0 +1,139 @@
+\subsection{Antes do 5G}
+
+Quando se trata de redes móveis, é importante analisar a evolução dessa tecnologia. Originalmente, as redes móveis tinham o foco em comunicações de voz analógica, sendo uma extensão da rede de telefonia pública \textit{(Public Switched Telephone Network - PSTN)}, que operava com rede de roteamento de circuitos \cite{Cardoso2020}.
+Entretanto, essas redes móveis foram adaptadas para transporte de dados com taxas de transmissão muito baixas, sendo conhecida como rede móvel de primeira geração (1G).
+
+Com a necessidade de evoluir as redes 1G, surge a segunda geração (2G), que provia um sinal com melhor qualidade, maiores taxas de transferência de dados e maior aproveitamento do espectro das ondas de rádio.
+Todavia, essa tecnologia ainda mantinha seu foco em roteamento de circuitos.
+Nessa geração, também surge o serviço de troca de mensagens curtas, conhecido como \textit{Short Message Service} (SMS).
+Foi no 2G que a tecnologia de transporte de dados \textit{Global System for Mobile Communications} (GSM) foi inserida.
+\textcolor{red}{\textbf{ToDo: citar artigo sobre.}}
+
+Em 1998, inicia-se a parceria entre diversas organizações responsáveis pela criação dos padrões de telecomunicação denominada \textit{3rd Generation Partnership Project} (3GPP)\footnote{\url{https://www.3gpp.org/about-3gpp}} que publica a \textit{Release 1999} no início do ano 2000.
+Essa \textit{release} descreve uma nova tecnologia de redes móveis, com foco em roteamento de pacotes.
+Porém, essa tecnologia mantinha a compatibilidade com as tecnologias antigas, sendo denominada de 3G, ou redes móveis de terceira geração \cite{release19993gpp}.
+
+Ao final de 2008, a \textit{Release 8} é publicada pela 3GPP, especificando os requisitos para a tecnologia \textit{Long Term Evolution} (LTE), que viria para ser o substituto da terceira geração de redes móveis.
+Entretanto, essa especificação não preenchia os requisitos mínimos para ser considerada a quarta geração de redes móveis, sendo assim conhecida como 3.9G \cite{delperal2018}.
+Dentre as mudanças provindas desta nova tecnologia, é importante mencionar a remoção do suporte à roteamento de circuitos, fazendo com que essa geração usasse apenas roteamento de pacotes sobre IP para todo o tráfego de informações na rede.
+
+Toda a informação de áudio de ligações telefônicas era trafegada sobre a rede de roteamento de circuitos nas gerações anteriores ao LTE.
+Com a remoção dessa tecnologia no LTE, foi necessário desenvolver um novo protocolo para trafegar essas informações, surgindo assim o \textit{Voice over LTE} (VoLTE).
+O VoLTE, assim como a tecnologia \textit{Voice over IP} (VoIP), trafega os dados de voz de ligações telefônicas sobre a rede de roteamento de pacotes, permitindo que as operadoras móveis pudessem continuar oferecendo o serviço de ligações telefônicas para seus clientes. Nesta época, esse serviço era o mais rentável para as operadoras \cite{Yi2012}. 
+
+Visando preencher os requisitos mínimos para a criação da quarta geração de redes móveis (4G), no início de 2011 é publicada a \textit{Release 10} pela 3GPP, criando assim a tecnologia \textit{LTE-Advanced} (LTE-A) \cite{release103gpp}.
+O 4G prometia velocidades de \textit{download} de pico de até 1Gbps e velocidades de \textit{upload} de pico de até 100Mbps.
+Atingir tais velocidades só era possível graças à remoção do suporte ao roteamento de circuitos que ocorreu no 3.9G.
+
+Antes do surgimento do LTE, existiam apenas 3 componentes na rede. Um era o equipamento de usuário, denominado \textit{User Equipment} (UE), sendo esse o dispositivo móvel. Outro componente era a estação de rádio base, ou \textit{Radio Access Network} (RAN), denominada na tecnologia 3G de \textit{UMTS Terrestial Radio Network} (UTRAN). Por fim, o núcleo da rede, ou \textit{Core Network} (CN), que no 3G era denominado \textit{UMTS Core Network} \cite{Miah2002}.
+No entanto, a especificação da rede LTE trouxe uma melhor separação dos seus componentes do núcleo da rede, denominado \textit{Evolved Packet Core} (EPC) nessa geração.
+O EPC foi separado em 4 componentes, sendo eles o \textit{Serving Gateway (Serving GW)}, o \textit{PDN Gateway (PDN GW)}, o \textit{Mobility Management Entity} (MME) e o \textit{Home Subscriber Server} (HSS) \cite{epc3gpp}.
+
+\subsection{Redes 5G}
+
+Em 2017, a 3GPP publica a versão inicial da \textit{Release 15}, com as definições da quinta geração de redes móveis, o 5G \cite{release153gpp}.
+Assim como nas gerações anteriores, o 5G trouxe melhorias na capacidade de transmissão de dados da RAN e redução da latência de comunicação entre o UE e a RAN.
+Entretanto, essa geração teve como objetivo criar uma rede mais dinâmica e com maior flexibilidade em relação ao LTE.
+Nessa geração também houve a integração com tecnologias de comunicação sem fios não-3GPP, que enquadram dispositivos denominados de \textit{Internet of Things} (IoT).
+
+A \textit{Release 15} também introduziu as arquiteturas de rede 5G \textit{Non-Stand  Alone} (NSA) e 5G \textit{Stand Alone} (SA).
+Na arquitetura NSA, o núcleo da rede 4G é utilizado para a autenticação e comunicação dos dispositivos 5G, substituindo-se a \textit{Evolved Node B} (eNodeB), como era chamada a RAN na rede LTE, pela \textit{5G New Radio} (5GNR ou gNodeB), que é a RAN da rede 5G.
+A rede NSA é considerada uma rede de transição entre o 4G e o 5G, pois o custo de implementação é baixo em ambientes onde já existe cobertura 4G das operadoras.
+
+Por outro lado, a arquitetura SA introduziu um novo núcleo da rede, denominado de \textit{5G Core} (5GC).
+De acordo com a especificação da 3GPP, o 5GC é um conjunto de componentes interconectados através de uma camada de serviços. Cada componente tem seu grupo específico de responsabilidades por consumir e prover serviços de e para outros elementos do sistema 5G, através de uma \textit{Application Programming Interface} (API).
+
+A quinta geração de redes móveis também trouxe uma nova arquitetura do núcleo da rede. Os principais componentes dessa rede são o \textit{Access and Mobility Management Function} (AMF), o \textit{Session Management Function} (SMF) e o \textit{User Plane Function} (UPF).
+O AMF é responsável por garantir que o processo de comunicação ocorra de maneira coesa e transparente, considerando a mobilidade do usuário como principal fator.
+O SMF é responsável por estabelecer, modificar e liberar as sessões de cada equipamento de usuário, além de alocar o endereço de IP para esses UEs.
+O UPF é o responsável pelo processamento e encaminhamento dos dados provindos dos UEs.
+
+Outros componentes do núcleo do 5G são \textit{Authentication Server Function} (AUSF), \textit{Unified Data Management} (UDM), \textit{Network Repository Function} (NRF), \textit{Policy Control Function} (PCF), \textit{Network Slice Selection Function} (NSSF), \textit{Network Exposure Function} (NEF), \textit{Network Data Analytics Function} (NWDAF), \textit{Application Function} (AF) e \textit{Non-3GPP InterWorking Function} (N3IWF).
+O AUSF é a função responsável por prover os serviços de autenticação dos UEs.
+O UDM gerencia as informações dos usuários conectados na rede.
+O NRF é um repositório que lista todas as funções de rede disponíveis em sua instância do núcleo do 5G.
+O PCF é o responsável por controlar o comportamento da rede, aplicando políticas de segurança e controle.
+O NSSF é o componente responsável por controlar os \textit{slices} da rede para cada UE.
+O NEF é responsável por expor eventos internos relacionados aos UEs.
+O NWDAF é a função responsável por coletar e analisar dados provindos dos outros componentes da rede, incluindo informações dos usuários.
+O AF é um componente genérico que interage com os outros componentes no intuito de melhorar a qualidade do serviço para o usuário.
+O N3IWF é o responsável por integrar dispositivos não-3GPP com a rede 5G.
+A Figura \ref{fig:5Gcore} mostra uma arquitetura em alto nível dos componentes do núcleo da rede 5G.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{TG1/Images/Core5G.png}
+    \captionsource{Core 5G software components.}{\cite{Cardoso2020}, p. 15}
+    \label{fig:5Gcore}
+\end{figure}
+
+\subsubsection{Protocolos NAS, NGAP e PDU}
+
+Os protocolos \textit{Non-Access Stratum} (NAS), \textit{NG Application Protocol} (NGAP) e \textit{Protocol Data Unit} (PDU) são essenciais para a comunicação entre o núcleo da rede, a RAN e o UE. 
+
+O protocolo NAS é usado para fazer a comunicação entre o UE e a função do núcleo AMF, tanto para dispositivos 3GPP quanto nao-3GPP. As principais funções do protocolo NAS são suporte a mobilidade do equipamento de usuário, incluindo procedimentos como autenticação, identificação e atualização das configurações genéricas do UE. Também é responsável por suportar os procedimentos de gerenciamento de sessões, para estabelecer e manter a conexão de dados entre o UE e a rede de dados \cite{3gpp.24.501}. Esse protocolo também é o responsável por fazer a autenticação e gerenciar a conexão da RAN com o núcleo da rede.
+
+O protocolo NGAP é o protocolo padrão para a comunicação do plano de controle entre a RAN e o núcleo da rede. Sendo assim, o NGAP suporta os procedimentos de gerenciamento de interfaces, transporte das mensagens do protocolo NAS, gerenciamento de contexto do UE e das sessões de PDU. O gerenciamento de interfaces é o responsável por estabelecer e manter a conexão entre os componentes do núcleo da rede, onde as mensagens dos protocolos NAS e NGAP são transportados. O Protocolo NGAP é responsável por encapsular e transportar as mensagens NAS, provindas do UE, entre a RAN e o AMF. O gerenciamento de contexto do UE provê informações dos UEs para a RAN, como informações de segurança, lista de restrições de mobilidade e capacidade do rádio do UE. O gerenciamento das sessões de PDU é responsável por gerenciar as sessões de PDU entre o núcleo da rede e a RAN, estabelecendo a interface de rádio utilizada para tráfego de controle e dados dos UEs \cite{3gpp.38.413}.
+
+O protocolo PDU é responsável pelo tráfego de dados do plano de usuário da rede, encapsulando os pacotes de dados sobre o protocolo de rede \textit{User Datagram Protocol} (UDP) \cite{3gpp.38.415}.
+
+\subsubsection{Principais componentes da Rede 5G}
+
+Dentro do núcleo da rede, os componentes AMF, SMF e UPF são os responsáveis por gerenciar todo o tráfego de informações provindos da RAN. O AMF é a porta de entrada do núcleo da rede em relação ao plano de controle. Sendo assim, todo o tráfego utilizando-se os protocolos NAS e NGAP provindos da RAN é direcionado para essa função do núcleo da rede.
+Quando uma nova RAN inicia o processo de conexão com um núcleo existente, a autenticação e o estabelecimento da conexão é feito através de mensagens trocadas utilizando-se o protocolo NAS entre a RAN e o AMF. Após estabelecida a conexão, uma mensagem é enviada da RAN para o SMF, indiretamente através do AMF, utilizando-se o protocolo NAS, para que o SMF tenha conhecimento da RAN e possa gerenciar sua sessão.
+
+Estando a RAN operacional, dispositivos 3GPP e não-3GPP dentro da área de cobertura da antena poderão iniciar sua conexão com essa rede 5G. Um dispositivo 3GPP, ao iniciar a conexão com essa rede 5G, troca mensagens com a RAN através do protocolo NAS. A RAN encapsula essas mensagens para o protocolo NGAP e encaminha para o núcleo da rede. O AMF, comunicando-se com os demais componentes da rede, autentica o UE através de um fluxo de informações definido na \textit{Release 15} do 3GPP \cite{3gpp.29.509}. Após concluir a autenticação do UE, o SMF se torna o responsável por gerenciar a sessão do equipamento de usuário. Um fluxo de dados PDU é estabelecido entre o UE e a função do núcleo UPF, que é responsável por gerenciar e encaminhar os pacotes de dados provindos dos UEs.
+
+O UPF é a função do núcleo da rede 5G responsável por ser o ponto de conexão do núcleo da rede com qualquer rede externa. É o UPF que encaminha os pacotes de dados provindos do UE através do protocolo PDU para a rede externa, sendo o responsável pelo roteamento de pacotes entre a rede externa e os diversos UEs conectados nessa rede 5G, além de coletar as métricas da rede que serão usadas na função NWDAF.
+
+A Figura \ref{fig:5Gprotocols} representa a arquitetura de uma rede 5G, exibindo os protocolos NAS, NGAP e PDU entre o equipamento de usuário, a RAN e o núcleo da rede.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{TG1/Images/5GSystemProtocols.png}
+    \captionsource{5G Core (5GC) Service-based Architecture (SBA).}{\cite{Dominato2021}, p. 3}
+    \label{fig:5Gprotocols}
+\end{figure}
+
+\subsection{Testes em rede móveis definidas por software}
+
+Segundo \cite{Bertolino2003}, "teste de software consiste na verificação dinâmica do comportamento de um programa em um conjunto finito de casos de teste, adequadamente selecionados do domínio de execuções geralmente infinitas, em relação ao comportamento esperado especificado".
+
+Com relação ao comportamento das redes sem fios implementadas em software, é importante executar testes para que se possa garantir que o funcionamento da rede esteja dentro do esperado.
+Dentre os tipos de testes que podem ser executados em cima de implementações de redes 5G \textit{open source}, os que se destacam são os testes de conformidade, robustez e desempenho, como descrito em \cite{Dominato2021} e \cite{Zhang2019ASO}.
+
+\subsubsection{Testes de Conformidade}
+
+Teste de conformidade se define como a atividade de teste realizada com o objetivo de verificar as capacidades e o comportamento de uma implementação em teste em reação aos requisitos de conformidade fornecidos no padrão de protocolo, de acordo com \cite{Sarikaya1989}.
+Os resultados dos testes de conformidade são do tipo lógico, sendo verdadeiro no caso onde a implementação em teste seja aprovada no teste e falso no caso contrário.
+Dessa forma, o uso de testes de conformidade em redes 5G são importantes para verificar se a implementação da rede móvel se comporta de acordo com a especificação da 3GPP em casos onde o equipamento de usuário execute corretamente as operações descritas.
+
+\cite{Rayner1987} divide o grupo de testes de conformidade em quatro categorias, sendo elas testes básicos de interconexão, testes de capacidade, testes de comportamento e testes de resolução de conformidade.
+Os testes básicos de interconexão são feitos para detectar quaisquer casos graves de não conformidade com a especificação do sistema.
+Os testes de capacidade verificam se as capacidades observáveis da implementação em teste estão de acordo com os requisitos de conformidade estática da especificação.
+Os testes de comportamento verificam a implementação em teste da forma mais abrangente possível para ver se a implementação está de acordo com os requisitos de conformidade dinâmicos da especificação.
+Os testes de resolução de conformidade testam em profundidade requisitos específicos na implementação em teste, verificando se a implementação se comporta exatamente como a especificação destes requisitos.
+
+\subsubsection{Testes de Robustez}
+
+Segundo \cite{IEEE.Standard.Glossary}, robustez é definida como "o grau em que um sistema ou componente pode funcionar corretamente na presença de entradas inválidas ou condições ambientais estressantes".
+Os resultados dos testes de robustez também são do tipo lógico, sendo verdadeiro no caso onde a implementação em teste seja aprovada no teste e falso no caso contrário.
+Sendo assim, o teste de robustez no núcleo de redes móveis verifica o comportamento da rede em situações atípicas e \cite{Dominato2021} divide o grupo de testes de robustez em um subgrupo de testes, que envolve testes de registro, de autenticação e de segurança, além de testes específicos para cada protocolo e função de rede do núcleo.
+
+\subsubsection{Testes de Desempenho}
+
+Os testes de desempenho são importantes para validar o funcionamento da rede em uma carga alta de trabalho, o que representa uma situação de sobrecarga de uso da rede, o que pode causar mal funcionamento da rede e, em situações mais críticas, uma interrupção total do serviço
+
+\textcolor{red}{ToDo}
+
+\textbf{Buscar definições de teste de desempenho (tem aquele artigo sobre MQTT)}
+
+\textbf{Explicar as métricas relacionadas com testes de desempenho e porque elas são importantes}
+
+\textcolor{red}{Falar sobre métricas de latência, perda de pacotes, uso de CPU e tempo de execução}
+
+---------------------------------------------------
+
+\textcolor{red}{\textbf{ToDo: Referenciar os artigos usados.}}
+
+

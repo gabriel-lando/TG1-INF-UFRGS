@@ -1,0 +1,64 @@
+%Template da SBC para artigos em português
+
+\documentclass[12pt]{article}
+
+%\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}
+
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{#1}\par
+  \textbf{Fonte:} #2\par
+}
+
+
+\sloppy
+
+\title{Instructions for Authors of SBC Conferences\\ Papers and Abstracts}
+
+\author{Gabriel Lando\inst{1}, Juliano Wickboldt\inst{1}}
+
+
+\address{Instituto de Informática -- Universidade Federal do Rio Grande do Sul
+  (UFRGS)\\
+  Caixa Postal 15.064 -- 91.501-970 -- Porto Alegre -- RS -- Brazil
+  \email{\{glando, jwickboldt\}@inf.ufrgs.br}
+}
+
+\begin{document} 
+
+\maketitle
+
+\begin{abstract}
+\input{TG1/Sections/0.1.Abstract}
+\end{abstract}
+     
+\begin{resumo} 
+\input{TG1/Sections/0.2.Resumo}
+\end{resumo}
+
+\section{Introdução}
+\input{TG1/Sections/1.Introduction}
+
+\section{\textit{Background}} \label{sec:background}
+\input{TG1/Sections/2.Background}
+
+\section{Trabalhos relacionados}
+\input{TG1/Sections/3.RelatedWork}
+
+\section{Método}
+\input{TG1/Sections/4.Method}
+
+\section{Proposed schedule}
+\input{TG1/Sections/5.ProposedSchedule}
+
+\textcolor{red}{ToDo: verificar a forma correta de referenciar sites}
+
+\bibliographystyle{sbc}
+\bibliography{references,refs-3gpp,refs-web}
+
+\end{document}

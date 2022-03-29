@@ -1,0 +1,73 @@
+Nesta seção serão analisados alguns estudos publicados com relação a testes em redes móveis.
+A Tabela \ref{tab:related-works} apresenta um resumo do estudo realizado de trabalhos relacionados apresentados nesta seção.
+
+\subsection{\textit{Tutorial on communication between access networks and the 5G core}}
+
+O estudo publicado por \cite{Dominato2021} cria uma prova de conceito de uma aplicação para testar núcleos \textit{open source} de rede 5G.
+Para esse trabalho, foram escolhidos os grupos de testes de conformidade e robustez.
+As implementações suportadas por esse testador são \textit{free5GC}, \textit{Open5GS} e \textit{OAI}.
+
+Essa prova de conceito simula uma RAN e um ou mais UEs.
+O objetivo do estudo é analisar o comportamento dos diferentes núcleos de rede 5G em dois diferentes cenários. O primeiro cenário foi executando ações de acordo com o que foi especificado pela 3GPP, através de testes de conformidade. O Segundo cenário foi a execução de ações onde informações inválidas foram informadas, forçando o núcleo da rede a contornar essa situação de acordo com o especificado, o que representa os testes de robustez.
+
+Em relação aos testes de conformidade, foram executados 11 diferentes testes, sendo eles teste de registro, autenticação primária e acordo de chave, identificação, transporte, modo de segurança, atualização de configuração genérica do UE, gerenciamento de sessão, gerenciamento de interface, transporte de mensagens NAS, gerenciamento de contexto do UE e gerenciamento de sessão do PDU.
+Foi utilizada a \textit{Release 16} do 3GPP como base para a execução dos testes.
+O núcleo \textit{Open5GS} foi aprovado em todos os testes de conformidade, enquanto que o \textit{OAI} e o \textit{free5GC} não responderam de acordo com a especificação no teste de atualização de configuração genérica do UE.
+
+Em relação aos testes de robustez, 7 testes foram executados, sendo eles teste de registro, autenticação, segurança, seleção SMF, seleção UPF, validação do fluxo NAS e gerenciamento de interface.
+No teste de registro, dois casos foram avaliados, onde o equipamento de usuário enviou uma requisição de registro sem o identificador do equipamento, que é um campo mandatório e o envio da requisição com as informações criptografadas. Nesse teste, apenas o núcleo \textit{Open5GS} respondeu as requisições de acordo com a especificação.
+No teste de autenticação, foram realizadas duas operações incorretas, o primeiro teste foi realizado enviando informações inválidas como resposta no fluxo de autenticação, enquanto que o segundo teste foi forçando uma falha de sincronização entre o núcleo e o UE. Nesse teste, todos os núcleos testados responderam de acordo com a especificação da 3GPP.
+Para o teste de segurança, foram testadas duas configurações de segurança inválidas, sendo elas responder a uma solicitação de segurança sem enviar um parâmetro obrigatório na resposta e responder a solicitação sem retransmitir as informações de segurança da requisição. Nesse teste, nenhum dos núcleos avaliados respondeu de acordo com a especificação.
+Os teste de seleção SMF e seleção UPF representam um equipamento de usuário fazendo uma requisição para estabelecer um fluxo PDU, porém enviando informações mandatórias inválidas. No teste de seleção SMF apenas o \textit{free5GC} se comportou de forma esperada. Todavia, no teste de seleção UPF, todos os núcleos testados se comportaram de acordo com o esperado.
+O teste de validação do fluxo NAS visa verificar se o núcleo da rede se comporta da forma esperada caso a requisição de estabelecimento de sessão PDU seja realizada enviando-se as informações necessárias em uma ordem incorreta. Nesse teste, os núcleos \textit{free5GC} e \textit{Open5GS} se comportaram de acordo com a especificação.
+Por fim, o teste de gerenciamento de interface simula o registro de uma nova RAN na rede 5G, porém enviando informações inválidas para o AMF, o qual deve rejeitar essa requisição. Apenas os núcleos \textit{free5GC} e \textit{Open5GS} se comportaram de acordo com a especificação.
+
+O estudo considera que todos os núcleos testados obtiveram um desempenho satisfatório para a operação dentro da normalidade. Entretanto, dentre os três núcleos analisados, o \textit{OAI} foi considerado pelos autores do artigo como o núcleo com a implementação menos madura até o momento da publicação.
+
+Os testes realizados no artigo de Dominato et al. são de extrema importância para avaliar o funcionamento de um núcleo de rede 5G.
+Como descrito brevemente no artigo, essa implementação de prova de conceito também suporta a realização de um teste onde múltiplos equipamentos de usuário são conectados no núcleo da rede em forma de fila (realizando uma conexão por vez), afim de avaliar se a implementação em teste do núcleo da rede se comporta de acordo com a especificação em casos onde existam diversos UE conectados na rede.
+Entretanto, não foram executados testes para comparar o desempenho dessas implementações de núcleo em casos onde uma grande quantidade de UEs se conectem ao núcleo de forma paralela, onde múltiplos equipamentos de usuário façam requisições de registro e autenticação em um curto intervalo de tempo.
+Esse teste é importante para avaliar qual implementação possui a melhor performance em casos de alta carga de trabalho.
+
+
+\textbf{Reproduzir Figura 2 do artigo do Cristiano, explicando os detalhes do core e os protocolos. Usar esses passos para detalhar os componentes (APIs, protocolos...)} \textcolor{red}{Já adicionei ela na seção passada...}
+
+\subsection{\textit{Realizing 5G Network Slicing Provisioning with Open Source Software}}
+
+O artigo de \cite{Lee2021} trata sobre fatiamentos de rede 5G utilizando-se da implementação \textit{open source free5GC} do núcleo de rede 5G.
+A ideia de fatiar uma rede permite criar múltiplas redes lógicas sobre uma única rede física e cada rede lógica tendo suas próprias funções de rede e configurações.
+Lee et al. executa cinco experimentos, em duas categorias distintas de testes. Primeiramente, o autor executa um experimento de conformidade, verificando se o fatiamento da rede 5G está de ocorrendo conforme o especificado. Após, são executados quatro experimentos medindo o desempenho do núcleo dessa implementação de rede 5G utilizando-se do fatiamento de rede.
+
+O primeiro experimento executado pelo autor tem como objetivo verificar se os pacotes de dados trafegam por todos os nós na ordem correta, conforme a especificação.
+Para isso, o autor utiliza de ferramentas de análise de rede, como o \textit{tcpdump}\footnote{\url{https://www.tcpdump.org}}.
+O teste foi bem sucedido, permitindo que os testes de desempenho pudessem ser realizados.
+
+O Segundo teste teve como objetivo medir a qualidade da rede utilizando-se de aplicações específicas para sobrecarregar a rede de dados e medir a vazão da rede 5G.
+O terceiro experimento visou medir o desempenho das operações de fatiamento de rede simulando um ambiente de banda larga móvel melhorada, onde o UE executa serviços que geram um alto tráfego de dados na rede.
+Nesse experimento, foi observado o tráfego de dados em cada dispositivo e fatia da rede.
+
+O quarto experimento simulou uma rede de sensores, onde diversos dispositivos IoT publicaram informações através do protocolo Message Queuing Telemetry Transport (MQTT)\footnote{\url{https://mqtt.org}} e diversas aplicações se inscreveram para receber as mensagens enviadas.
+Foram coletadas métricas de latência, perda de pacotes, uso de CPU e tempo de execução de execuções do experimento variando-se a quantidade de dispositivos se publicando e aplicações se inscrevendo.
+Constatou-se que a latência aumentava gradativamente a cada aumento na quantidade de conexões, assim como em certo momento houve perda de pacotes devido a sobrecarga da rede.
+
+O quinto experimento consistiu em criar fatias de rede variando-se a quantidade de funções de rede.
+O objetivo desse experimento foi simular serviços de diferentes complexidades, medindo-se a latência gerada ao adicionar mais funções de rede.
+
+Os experimentos executador por Lee et al. são muito importantes para analisar como a sobrecarga de redes móveis afeta o desempenho de redes 5G fatiadas.
+Entretanto, esse artigo está realizando os experimentos sobre o plano de usuário da rede, não levando em consideração o quanto o plano de controle da rede foi afetado.
+
+\subsection{\textcolor{red}{ToDo: Falar de outros artigos}}
+
+
+
+\begin{table}[]
+\centering
+\caption{Tabela comparando os trabalhos relacionados}
+\label{tab:related-works}
+\begin{tabular}{llll}
+\hline
+\textbf{Autor} & \textbf{Tipos de teste} & \textbf{\begin{tabular}[c]{@{}l@{}}Implementações\\ testadas\end{tabular}} & \textbf{Protocolos testados} \\ \hline
+\cite{Dominato2021} & \begin{tabular}[c]{@{}l@{}}Conformidade\\ e robustez\end{tabular} & \textit{\begin{tabular}[c]{@{}l@{}}free5GC, Open5GS\\ e OAI\end{tabular}} & NAS e NGAP \\ \hline
+\cite{Lee2021} & \begin{tabular}[c]{@{}l@{}}Conformidade\\ e desempenho\end{tabular} & \textit{free5GC} & Fluxo PDU \\ \hline
+\end{tabular}
+\end{table}
