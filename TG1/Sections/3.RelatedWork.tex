@@ -56,7 +56,15 @@ O objetivo desse experimento foi simular serviços de diferentes complexidades, 
 Os experimentos executador por Lee et al. são muito importantes para analisar como a sobrecarga de redes móveis afeta o desempenho de redes 5G fatiadas.
 Entretanto, esse artigo está realizando os experimentos sobre o plano de usuário da rede, não levando em consideração o quanto o plano de controle da rede foi afetado.
 
-\subsection{\textcolor{red}{ToDo: Falar de outros artigos}}
+\subsection{\textit{Delay metrics and delay characteristics: A study of four Swedish HSDPA+ and LTE networks}}
+
+O estudo de \cite{Garcia2015} realiza testes de desempenho no plano de usuário de redes móveis reais de gerações passadas.
+As métricas coletadas pelo estudo foram latência e largura de banda das redes analisadas.
+Também foi observado o tempo de carregamento de páginas na internet em diversos cenários, simulando o uso real da rede.
+
+O estudo de Garcia et al. analisa somente o tráfego de dados em redes móveis, verificando o comportamento das redes em uso normal.
+Uma vez que as redes testadas foram redes reais de quatro operadoras locais, entende-se as limitações do estudo e sabe-se que a coleta de métricas relacionadas ao plano de controle da rede não seria possível.
+Devido a limitações na realização de testes em redes reais, o autor deste estudo não pôde realizar testes de desempenho durante o processo de ingresso na rede móvel, com intuito de testar o plano de controle.
 
 
 
@@ -69,5 +77,6 @@ Entretanto, esse artigo está realizando os experimentos sobre o plano de usuár
 \textbf{Autor} & \textbf{Tipos de teste} & \textbf{\begin{tabular}[c]{@{}l@{}}Implementações\\ testadas\end{tabular}} & \textbf{Protocolos testados} \\ \hline
 \cite{Dominato2021} & \begin{tabular}[c]{@{}l@{}}Conformidade\\ e robustez\end{tabular} & \textit{\begin{tabular}[c]{@{}l@{}}free5GC, Open5GS\\ e OAI\end{tabular}} & NAS e NGAP \\ \hline
 \cite{Lee2021} & \begin{tabular}[c]{@{}l@{}}Conformidade\\ e desempenho\end{tabular} & \textit{free5GC} & Fluxo PDU \\ \hline
+\cite{Garcia2015} & Desempenho & Não se aplica & Fluxo PDU \\ \hline
 \end{tabular}
 \end{table}
