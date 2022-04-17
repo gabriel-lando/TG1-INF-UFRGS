@@ -2,7 +2,7 @@ Nesta seção, será explicado como pretende-se desenvolver o módulo de teste d
 Com o intuito de avaliar o comportamento das diferentes implementações \textit{open source} de núcleo 5G para execução dos procedimentos em escala e utilizando-se como base a prova de conceito do trabalho de \cite{Dominato2021}, propõe-se desenvolver uma extensão para a aplicação my5G-RANTester.
 Uma arquitetura em alto nível da aplicação a ser desenvolvida pode ser vista na Figura \ref{fig:tester_arch}.
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.6\textwidth]{TG1/Images/TesterArchtectureV2.png}
     \caption{Arquitetura do trabalho}
@@ -20,7 +20,7 @@ Os planos de testes representam os testes em si que serão escolhidos para serem
 
 Por fim, a camada da Interface de usuário permitirá a execução e o monitoramento dos testes, além de exportar as métricas armazenadas na camada acima. É com essa camada que o usuário do testador irá interagir através de parâmetros enviados por uma linha de comandos a ser executada no ambiente de testes.
 
-A implementação a ser usada como base é feita na linguagem Go, criada pela Google em 2009\footnote{https://go.dev/}. O objetivo desse trabalho é estender o testador existente, adicionando a funcionalidade de testes de desempenho.
+A implementação a ser usada como base é feita na linguagem \textit{Go}, criada pela Google em 2009\footnote{https://go.dev/}. O objetivo desse trabalho é estender o testador existente, adicionando a funcionalidade de testes de desempenho.
 Para analisar o desempenho das implementações \textit{open source} de núcleos 5G, as métricas a serem coletadas são latência, perda de pacotes da rede e uso de processador e memória RAM da máquina usada para realizar os testes.
 
 \begin{table}[]

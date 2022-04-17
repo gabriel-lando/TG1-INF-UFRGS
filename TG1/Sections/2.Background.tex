@@ -8,7 +8,7 @@ Todavia, essa tecnologia ainda mantinha seu foco em roteamento de circuitos.
 Nessa geração, também surge o serviço de troca de mensagens curtas, conhecido como \textit{Short Message Service} (SMS).
 Foi no 2G que a tecnologia de transporte de dados \textit{Global System for Mobile Communications} (GSM) foi inserida \cite{bhalla2010generations}.
 
-Em 1998, inicia-se a parceria entre diversas organizações responsáveis pela criação dos padrões de telecomunicação denominada 3GPP\footnote{\url{https://www.3gpp.org/about-3gpp}} que publica a \textit{Release 1999} no início do ano 2000.
+Em 1998, inicia-se a parceria entre diversas organizações responsáveis pela criação dos padrões de telecomunicação denominada 3GPP\footnote{\url{https://www.3gpp.org/about-3gpp}}, que publica a \textit{Release 1999} no início do ano 2000.
 Em redes móveis, \textit{releases} são conjuntos de recursos e especificações disponibilizadas a cada período, definindo os padrões a serem seguidos para a implementação dessas redes.
 A \textit{Release 1999} descreve uma nova tecnologia de redes móveis, com foco em roteamento de pacotes.
 Porém, essa tecnologia mantinha a compatibilidade com as tecnologias antigas, sendo denominada redes móveis de terceira geração (3G) \cite{3gpp.01.01}.
@@ -39,7 +39,7 @@ Assim como nas gerações anteriores, o 5G visava introduzir melhorias na capaci
 Entretanto, essa geração teve como objetivo criar uma rede mais dinâmica e com maior flexibilidade em relação ao LTE.
 Nessa geração também houve a integração com tecnologias de comunicação sem fios não-3GPP, que enquadram dispositivos denominados de \textit{Internet of Things} (IoT).
 
-A \textit{Release 15} também introduziu as arquiteturas de rede 5G \textit{Non-Stand  Alone} (NSA) e 5G \textit{Stand Alone} (SA).
+A \textit{Release 15} também introduziu as arquiteturas de rede 5G \textit{Non-Stand Alone} (NSA) e 5G \textit{Stand Alone} (SA).
 Na arquitetura NSA, o núcleo da rede 4G é utilizado para a autenticação e comunicação dos dispositivos 5G, substituindo-se a E-UTRAN pela \textit{5G New Radio} (5GNR) e, consequentemente, a eNodeB pela gNodeB.
 A rede NSA é considerada uma rede de transição entre o 4G e o 5G, pois o custo de implementação é baixo em ambientes onde já existe cobertura 4G das operadoras.
 
@@ -51,7 +51,7 @@ O AMF é responsável por garantir que o processo de comunicação ocorra de man
 O SMF é responsável por estabelecer, modificar e liberar as sessões de cada equipamento de usuário, além de requisitar a alocação de um endereço de IP para esses UEs.
 O UPF é o responsável pelo processamento e encaminhamento dos dados provindos dos UEs. Esses componentes serão discutidos com maior profundidade na subseção \ref{subsec:components}.
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{TG1/Images/Core5G.png}
     \captionsource{Core 5G software components.}{\cite[p.~15]{Cardoso2020}}
@@ -72,19 +72,19 @@ O \textit{Non-3GPP InterWorking Function} (N3IWF) é o responsável por integrar
 \subsubsection{Protocolos NAS e NGAP e Sessões de PDU}
 
 Os protocolos \textit{Non-Access Stratum} (NAS) e \textit{NG Application Protocol} (NGAP) são essenciais para a comunicação entre o núcleo da rede, a RAN e o UE através do plano de controle.
-As sessões de \textit{Packet Data Unit} (PDU) são importantes para garantirem o funcionamento do plano de usuário da rede 5G.
+As sessões de \textit{Packet Data Unit} (PDU) são importantes para garantir o funcionamento do plano de usuário da rede 5G.
 A Figura \ref{fig:5Gprotocols} representa a arquitetura de uma rede 5G, exibindo os protocolos NAS e NGAP e as sessões de PDU entre o equipamento de usuário, a gNodeB e o núcleo da rede.
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{TG1/Images/5GSystemProtocols.png}
     \captionsource{5G Core (5GC) Service-based Architecture (SBA).}{\cite[p.~3]{Dominato2021}}
     \label{fig:5Gprotocols}
 \end{figure}
 
-O protocolo NAS é usado para fazer a comunicação entre o UE e a função do núcleo AMF, tanto para dispositivos 3GPP quanto não-3GPP. As principais funções do protocolo NAS são suporte à mobilidade do equipamento de usuário, incluindo procedimentos como autenticação, identificação e atualização das configurações genéricas do UE. O NAS também é responsável por suportar os procedimentos de gerenciamento de sessões, para estabelecer e manter a conexão de dados entre o UE e a rede de dados \cite{3gpp.24.501}. Esse protocolo também é o responsável por fazer a autenticação e gerenciar a conexão da gNodeB com o núcleo da rede.
+O protocolo NAS é usado para fazer a comunicação entre o UE e a função do núcleo AMF, tanto para dispositivos 3GPP quanto não-3GPP. A principal função do protocolo NAS é dar suporte à mobilidade do equipamento de usuário, incluindo procedimentos como autenticação, identificação e atualização das configurações genéricas do UE. O NAS também é responsável por suportar os procedimentos de gerenciamento de sessões, para estabelecer e manter a conexão de dados entre o UE e a rede de dados \cite{3gpp.24.501}. Esse protocolo também é o responsável por fazer a autenticação e gerenciar a conexão da gNodeB com o núcleo da rede.
 
-O protocolo NGAP é o protocolo padrão para a comunicação do plano de controle entre a RAN e o núcleo da rede. O NGAP suporta os procedimentos de gerenciamento de interfaces, transporte das mensagens do protocolo NAS, gerenciamento de contexto do UE e das sessões de PDU. O gerenciamento de interfaces é o responsável por estabelecer e manter a conexão entre os componentes do núcleo da rede, onde as mensagens dos protocolos NAS e NGAP são transportados. O Protocolo NGAP é responsável por encapsular e transportar as mensagens NAS, provindas do UE, entre a RAN e o AMF. O gerenciamento de contexto do UE provê informações dos UEs para a RAN, como informações de segurança, lista de restrições de mobilidade e capacidade do rádio do UE. O gerenciamento das sessões de PDU é responsável por gerenciar as sessões de PDU entre o núcleo da rede e a RAN, estabelecendo a interface de rádio utilizada para tráfego de controle e dados dos UEs \cite{3gpp.38.413}.
+O protocolo NGAP é o protocolo padrão para a comunicação do plano de controle entre a RAN e o núcleo da rede. O NGAP suporta os procedimentos de gerenciamento de interfaces, transporte das mensagens do protocolo NAS, gerenciamento de contexto do UE e das sessões de PDU. O gerenciamento de interfaces é o responsável por estabelecer e manter a conexão entre os componentes do núcleo da rede, onde as mensagens dos protocolos NAS e NGAP são transportados. O Protocolo NGAP é responsável por encapsular e transportar as mensagens NAS, provindas do UE, entre a RAN e o AMF. O gerenciamento de contexto do UE provê informações dos UEs para a RAN, como informações de segurança, lista de restrições de mobilidade e capacidade do rádio do UE. O gerenciamento das sessões de PDU é responsável por gerenciar os fluxos das unidades de pacotes de dados entre o núcleo da rede e a RAN, estabelecendo a interface de rádio utilizada para tráfego de controle e dados dos UEs \cite{3gpp.38.413}.
 
 As sessões de PDU são responsáveis por prover a conexão fim-a-fim para o plano de usuário entre o UE e a rede de dados externa, através da função de rede UPF.
 O fluxo de dados trafegado através das sessões de PDU é chamado de fluxo PDU e seus pacotes de dados são encapsulando sobre o protocolo de rede \textit{User Datagram Protocol} (UDP) \cite{3gpp.38.415}.
@@ -95,8 +95,8 @@ O fluxo de dados trafegado através das sessões de PDU é chamado de fluxo PDU 
 Dentro do núcleo da rede, os componentes AMF, SMF e UPF são os responsáveis por gerenciar todo o tráfego de informações provindos da RAN.
 O AMF é a porta de entrada do núcleo da rede em relação ao plano de controle.
 Sendo assim, todo o tráfego dos protocolos NAS e NGAP provindos da RAN é direcionado para essa função do núcleo da rede.
-Quando uma nova gNodeB inicia o processo de conexão com um núcleo existente, a autenticação e o estabelecimento da conexão é feito através de mensagens trocadas utilizando-se o protocolo NAS entre a RAN e o AMF.
-Após estabelecida a conexão, uma mensagem é enviada da RAN para o SMF, indiretamente através do AMF, utilizando-se o protocolo NAS, para que o SMF tenha conhecimento da gNodeB e possa gerenciar sua sessão.
+Quando uma nova gNodeB inicia o processo de conexão com um núcleo existente, a autenticação e o estabelecimento da conexão é feito através de mensagens trocadas que utilizam o protocolo NAS entre a RAN e o AMF.
+Após estabelecida a conexão, uma mensagem é enviada da RAN para o SMF, indiretamente através do AMF, utilizando o protocolo NAS, para que o SMF tenha conhecimento da gNodeB e possa gerenciar sua sessão.
 
 Estando a RAN operacional, dispositivos 3GPP e não-3GPP dentro da área de cobertura da antena poderão iniciar sua conexão com essa rede 5G. Um dispositivo 3GPP, ao iniciar a conexão com essa rede 5G, troca mensagens com a RAN através do protocolo NAS. A RAN encapsula essas mensagens para o protocolo NGAP e encaminha para o núcleo da rede. O AMF, comunicando-se com os demais componentes da rede, autentica o UE através de um fluxo de informações definido na \textit{Release 15} do 3GPP \cite{3gpp.29.509}. Após concluir a autenticação do UE, o SMF se torna o responsável por gerenciar a sessão do equipamento de usuário. Um fluxo de dados PDU é estabelecido entre o UE e a função do núcleo UPF, que é responsável por gerenciar e encaminhar os pacotes de dados provindos dos UEs.
 
@@ -114,34 +114,35 @@ Dentre os tipos de testes que podem ser executados em cima de implementações d
 \subsubsection{Testes de Conformidade}
 
 De acordo com \cite{Sarikaya1989}, teste de conformidade é definido como a atividade de teste realizada com o objetivo de verificar as capacidades e o comportamento de uma implementação em teste em relação aos requisitos de conformidade fornecidos no padrão de protocolo.
-Os resultados dos testes de conformidade são do tipo lógico, sendo verdadeiro no caso onde a implementação em teste seja aprovada no teste e falso no caso contrário.
+Os resultados dos testes de conformidade são do tipo lógico, sendo verdadeiro no caso onde a implementação em teste seja aprovada e falso no caso contrário.
 Dessa forma, o uso de testes de conformidade em redes 5G é importante para verificar se a implementação da rede móvel se comporta de acordo com a especificação da 3GPP em casos onde o equipamento de usuário execute corretamente as operações descritas.
 
-\cite{Rayner1987} divide o grupo de testes de conformidade em quatro categorias, sendo elas testes básicos de interconexão, testes de capacidade, testes de comportamento e testes de resolução de conformidade.
+\cite{Rayner1987} divide o grupo de testes de conformidade em quatro categorias: testes básicos de interconexão, testes de capacidade, testes de comportamento e testes de resolução de conformidade.
 Os testes básicos de interconexão são feitos para detectar quaisquer casos graves de não conformidade com a especificação do sistema.
-Os testes de capacidade verificam se as capacidades observáveis da implementação em teste estão de acordo com os requisitos de conformidade estática da especificação, esses testes são executados sobre o código fonte da aplicação.
-Os testes de comportamento verificam a implementação da forma mais abrangente possível para ver se a implementação está de acordo com os requisitos de conformidade dinâmicos da especificação. Esses testes são realizados durante ou após a execução da implementação.
+Os testes de capacidade verificam se as capacidades observáveis da implementação em teste estão de acordo com os requisitos de conformidade estática da especificação. Os testes de conformidade estática são executados sobre o código fonte da aplicação.
+Os testes de comportamento verificam a implementação da forma mais abrangente possível para ver se a implementação está de acordo com os requisitos de conformidade dinâmica da especificação. Os testes de conformidade dinâmica são realizados durante ou após a execução da implementação.
 Os testes de resolução de conformidade examinam em profundidade requisitos específicos na implementação, verificando se a implementação se comporta exatamente como a especificação destes requisitos.
 
 \subsubsection{Testes de Robustez}
 
 Segundo \cite[p.~64, tradução nossa]{IEEE.Standard.Glossary}, robustez é definida como ``o grau em que um sistema ou componente pode funcionar corretamente na presença de entradas inválidas ou condições ambientais estressantes".
-Os resultados dos testes de robustez também são do tipo lógico, sendo verdadeiro no caso onde a implementação em teste seja aprovada no teste e falso no caso contrário.
-Sendo assim, o teste de robustez no núcleo de redes móveis verifica o comportamento da rede em situações atípicas. \cite{Dominato2021} divide o grupo de testes de robustez em um subgrupo de testes, que envolve testes de registro, de autenticação e de segurança, além de testes específicos para cada protocolo e função de rede do núcleo que serão detalhados na Subseção \ref{subsec:Dominato}.
+Os resultados dos testes de robustez também são do tipo lógico, sendo verdadeiro no caso onde a implementação em teste seja aprovada e falso no caso contrário.
+Sendo assim, o teste de robustez no núcleo de redes móveis verifica o comportamento da rede em situações atípicas. \cite{Dominato2021} dividem o grupo de testes de robustez em um subgrupo de testes, que envolve testes de registro, de autenticação e de segurança, além de testes específicos para cada protocolo e função de rede do núcleo que serão detalhados na Subseção \ref{subsec:Dominato}.
 
 \subsubsection{Testes de Desempenho}
 
 Os testes de desempenho são importantes para validar o funcionamento da rede em uma carga alta de trabalho, o que representa uma situação de sobrecarga de uso da rede, o que pode causar mal funcionamento da rede e, em situações mais críticas, uma interrupção total do serviço.
 Para a execução de testes de desempenho, costuma-se usar aplicações de referência, chamados de \textit{benchmarks}.
-Os \textit{softwares} de \textit{benchmark} são aqueles que se utilizam dos mesmos parâmetros de entrada para avaliar o desempenho de diferentes sistemas ou serviços \cite{Boano2018}.
-Sendo assim, o usuário pode comparar as métricas obtidas na execução com métricas coletadas de outras execuções em outros sistemas ou serviços e avaliar o desempenho do sistema ou serviço em teste.
+Os \textit{softwares} de \textit{benchmark} são aqueles que utilizam os mesmos parâmetros de entrada para avaliar o desempenho de diferentes sistemas ou serviços \cite{Boano2018}.
+Sendo assim, o usuário pode comparar as métricas obtidas na execução com métricas coletadas de outras execuções em diferentes sistemas ou serviços e avaliar o desempenho do teste.
 
-Para a avaliação dos testes de desempenho em redes móveis em software, \cite{Lee2021} utilizam as métricas taxa de transferência de dados, latência, perda de pacotes, carga do processador, tempo de execução e tempo de processador.
-Essas métricas são divididas em dois grupos, sendo taxa de transferência de dados, latência e perda de pacotes as métricas de desempenho da rede e carga do processador, tempo de execução e tempo de processador sendo as métricas de desempenho do \textit{hardware}.
+Para a avaliação dos testes de desempenho em redes móveis em software, \cite{Lee2021} utilizam dois grupos de métricas.
+O primeiro grupo engloba métricas de desempenho de rede: taxa de transferência de dados, latência e perda de pacotes.
+O segundo grupo é composto por métricas de desempenho de \textit{hardware}: carga do processador, tempo de execução e tempo de processador.
 
 Em relação as métricas de desempenho de rede, a taxa de transferência é definida por \cite[p.~77, tradução nossa]{IEEE.Standard.Glossary} como ``a quantidade de trabalho que pode ser realizada por um sistema ou componente de computador em um determinado período de tempo''. Sendo assim, a taxa de transferência de dados em uma rede pode ser caracterizada como a quantidade de dados movida com sucesso de um lugar para outro em um determinado período de tempo.
-\cite[p.~43, tradução nossa]{IEEE.Standard.Glossary} definem latência como ``o intervalo de tempo entre o instante em que uma unidade de controle de instrução emite uma chamada de dados e o instante em que a transferência de dados é iniciada.'' Se tratando de redes de computadores, latência se refere ao tempo que um pacote de dados leva para ser gerado no emissor, transmitido pela rede e recebido e decodificado no receptor.
-\cite{Bhadra2015} definem perda de pacotes como a falha de pacotes de dados em chegar a um destino específico. Esse tipo de falha tende a afetar os mais diversos tipos de comunicação e podem produzir dados incorretos no destinatário.
+\cite[p.~43, tradução nossa]{IEEE.Standard.Glossary} definem latência como ``o intervalo de tempo entre o instante em que uma unidade de controle de instrução emite uma chamada de dados e o instante em que a transferência de dados é iniciada.'' Se tratando de redes de computadores, latência se refere ao tempo que um pacote de dados leva para ser gerado no emissor, transmitido pela rede, e recebido e decodificado no receptor.
+\cite{Bhadra2015} definem perda de pacotes como a falha de pacotes de dados ao chegar a um destino específico. Esse tipo de falha tende a afetar os mais diversos tipos de comunicação e podem produzir dados incorretos no destinatário.
 
-Quanto a métricas de desempenho do \textit{hardware}, a carga do processador, ou \textit{Central Processing Unit} (CPU) é definida como o número de processos que estão sendo executados por uma CPU ou estão aguardando para serem executados \cite{Sebastian2014}.
-\cite[p.~242, tradução nossa]{Patterson2014-qv} definem tempo de execução como ``o tempo total necessário para o computador concluir uma tarefa, incluindo acessos ao disco, acessos à memória, atividades de entrada e saída de dados, sobrecarga do sistema operacional, tempo de execução da CPU e assim por diante'' e tempo de processador como somente o tempo que a CPU gasta computando uma tarefa específica.
+Quanto a métricas de desempenho do \textit{hardware}, a carga do processador, também conhecido como \textit{Central Processing Unit} (CPU), é definida como o número de processos que estão sendo executados por uma CPU ou estão aguardando para serem executados \cite{Sebastian2014}.
+\cite[p.~242, tradução nossa]{Patterson2014-qv} definem tempo de execução como ``o tempo total necessário para o computador concluir uma tarefa, incluindo acessos ao disco, acessos à memória, atividades de entrada e saída de dados, sobrecarga do sistema operacional, tempo de execução da CPU e assim por diante''. Já o tempo de processador é definido como somente o tempo que a CPU gasta computando uma tarefa específica \cite{Patterson2014-qv}.
